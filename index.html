@@ -187,28 +187,44 @@
     </nav>
 
     <!-- Hero Section -->
-    <section
-      id="home"
-      class="relative h-screen flex flex-col items-center justify-center text-center text-white bg-navy bg-cover bg-center"
-      style="background-image: url('background.jpg');"
+<section
+  id="home"
+  class="relative flex flex-col items-center justify-center text-center text-white w-full min-h-screen overflow-hidden"
+>
+  <!-- Full background image (selalu proporsional) -->
+  <img
+    src="img/bg/background.jpg"
+    alt="Background"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+  />
+
+  <!-- Overlay navy transparan -->
+  <div class="absolute inset-0 bg-navy/60 z-0"></div>
+
+  <!-- Konten -->
+  <div
+    class="relative z-10 flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 text-center"
+  >
+    <p
+      class="text-base sm:text-lg md:text-xl mb-3 slide-up is-visible text-navy drop-shadow-md"
     >
-      <div class="absolute inset-0 bg-navy/60 z-0"></div>
-      <div class="relative z-10 p-4">
-        <p class="text-xl mb-3 slide-up is-visible text-navy">The Engagement of</p>
-        <h1
-          class="text-5xl sm:text-6xl md:text-8xl shimmer-gold mb-4 scale-in is-visible"
-          style="font-family: 'Great Vibes', cursive"
-        >
-          Irvan & Rifa
-        </h1>
-        <button
-          id="openInvitation"
-          class="px-8 py-4 bg-gold text-white font-bold rounded-full shadow-2xl hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105"
-        >
-          <span class="text-lg">💌 Open Invitation</span>
-        </button>
-      </div>
-    </section>
+      The Engagement of
+    </p>
+
+    <h1
+      class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl shimmer-gold mb-6 scale-in is-visible font-['Great_Vibes'] leading-tight"
+    >
+      Irvan & Rifa
+    </h1>
+
+    <button
+      id="openInvitation"
+      class="px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-gold text-white font-bold rounded-full shadow-2xl hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105 text-base sm:text-lg"
+    >
+      Open Invitation
+    </button>
+  </div>
+</section>
 
     <!-- Background Music -->
     <audio id="bgMusic" src="lagu.mp3" loop preload="auto"></audio>
