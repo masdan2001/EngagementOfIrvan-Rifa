@@ -5,38 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Engagement Invitation Irvan & Rifa</title>
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font -->
+    <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
     <style>
+      :root {
+        --color-navy: #1d3557;
+        --color-gold: #caa356;
+      }
+
       body {
         font-family: "Poppins", sans-serif;
         scroll-behavior: smooth;
+        overflow-x: hidden;
       }
-      .gold {
-        color: #caa356;
+
+      /* Custom Colors */
+      .text-gold {
+        color: var(--color-gold);
       }
       .bg-gold {
-        background-color: #caa356;
+        background-color: var(--color-gold);
       }
-      .navy {
-        color: #1d3557;
+      .text-navy {
+        color: var(--color-navy);
       }
       .bg-navy {
-        background-color: #1d3557;
+        background-color: var(--color-navy);
       }
+
+      /* Arabic Font Style */
       .arabic {
-        font-family: 'Scheherazade New', 'Amiri', serif;
+        font-family: "Amiri", serif;
         direction: rtl;
         text-align: center;
+        font-weight: 700;
       }
-      .gold {
+
+      /* Shimmering Gold Text */
+      .shimmer-gold {
         background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -44,257 +61,418 @@
         animation: shimmer 3s linear infinite;
       }
       @keyframes shimmer {
-        0% { background-position: 200% center; }
-        100% { background-position: -200% center; }
+        0% {
+          background-position: 200% center;
+        }
+        100% {
+          background-position: -200% center;
+        }
       }
 
-      /* Navbar floating muncul hanya di mobile */
+      /* Base Animation Classes */
+      .fade-in {
+        opacity: 0;
+        transition: opacity 1.5s ease-out;
+      }
+      .fade-in.is-visible {
+        opacity: 1;
+      }
+
+      .slide-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .slide-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .scale-in.is-visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Floating Navbar (Mobile Only) */
       @media (max-width: 768px) {
         #floatingNav {
           display: none;
         }
         #floatingNav.active {
           display: flex;
-          animation: fadeInUp 0.6s ease-out;
+          animation: fadeInUp 0.5s ease-out;
         }
       }
+
       @keyframes fadeInUp {
-        from { opacity: 0; transform: translate(-50%, 20px); }
-        to { opacity: 1; transform: translate(-50%, 0); }
+        from {
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
       }
+
       .nav-btn.active span {
-        color: #caa356;
+        color: var(--color-gold);
         font-weight: 600;
+      }
+
+      /* Typewriter Effect */
+      .soft-letter {
+        opacity: 0;
+        display: inline-block;
+        transition: opacity 0.15s ease-in;
+      }
+      .soft-letter.show {
+        opacity: 1;
+      }
+
+      /* Disable animation on desktop */
+      @media (min-width: 769px) {
+        #softType,
+        .soft-letter {
+          opacity: 1 !important;
+          transition: none !important;
+          display: inline !important;
+        }
       }
     </style>
   </head>
 
   <body class="bg-white text-slate-700">
+    <!-- Loading Screen -->
+<div
+  id="loadingScreen"
+  class="fixed inset-0 flex flex-col items-center justify-center bg-navy text-white z-50"
+>
+  <div class="relative">
+    <!-- Animated Heart -->
+    <div class="w-16 h-16 relative">
+      <div
+        class="absolute inset-0 bg-pink-400 rounded-full animate-ping opacity-30"
+      ></div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-16 h-16 text-pink-400 animate-bounce"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.829a4 4 0 010-5.656z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
 
-    <!-- NAVBAR (disembunyikan dulu) -->
-<nav id="navbar" class="fixed w-full bg-white/80 backdrop-blur-md shadow-md hidden md:flex z-50">
-  <ul class="flex justify-center space-x-6 py-3 text-navy font-semibold">
-    <li><a href="#couple" class="hover:text-gold">Couple</a></li>
-    <li><a href="#event" class="hover:text-gold">Event</a></li>
-    <li><a href="#gallery" class="hover:text-gold">Gallery</a></li>
-    <li><a href="#guestbook" class="hover:text-gold">Guestbook</a></li>
-  </ul>
-</nav>
+    <!-- Desktop Navbar -->
+    <nav
+      id="navbar"
+      class="fixed w-full bg-white/80 backdrop-blur-md shadow-lg hidden md:block z-50 transition duration-300"
+    >
+      <ul class="flex justify-center space-x-8 py-3 text-navy font-semibold">
+        <li><a href="#couple" class="hover:text-gold transition">Couple</a></li>
+        <li><a href="#event" class="hover:text-gold transition">Event</a></li>
+        <li><a href="#gallery" class="hover:text-gold transition">Gallery</a></li>
+        <li><a href="#footer" class="hover:text-gold transition">Penutup</a></li>
+      </ul>
+    </nav>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section
       id="home"
-      class="relative h-screen flex flex-col items-center justify-center text-center text-white bg-navy"
+      class="relative h-screen flex flex-col items-center justify-center text-center text-white bg-navy bg-cover bg-center"
+      style="background-image: url('img/bg/background.jpg');"
     >
-      <div class="relative z-10">
-        <h1 class="text-5xl md:text-6xl font-['Great_Vibes'] gold mb-4">
-          Engagement
+      <div class="absolute inset-0 bg-navy/60 z-0"></div>
+      <div class="relative z-10 p-4">
+        <p class="text-xl mb-3 slide-up is-visible text-navy">The Engagement of</p>
+        <h1
+          class="text-5xl sm:text-6xl md:text-8xl shimmer-gold mb-4 scale-in is-visible"
+          style="font-family: 'Great Vibes', cursive"
+        >
+          Irvan & Rifa
         </h1>
-        <p class="text-lg md:text-xl mb-8">Irvan &amp; Rifa</p>
         <button
           id="openInvitation"
-          class="px-6 py-3 bg-gold text-white font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition"
+          class="px-8 py-4 bg-gold text-white font-bold rounded-full shadow-2xl hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105"
         >
-          💌 Open Invitation
+          <span class="text-lg">💌 Open Invitation</span>
         </button>
       </div>
     </section>
 
-    <!-- Audio -->
-    <audio id="bgMusic" src="lagu.mp3" loop></audio>
+    <!-- Background Music -->
+    <audio id="bgMusic" src="mp3/lagu.mp3" loop preload="auto"></audio>
 
-    <!-- COUPLE SECTION -->
+    <!-- Couple Section -->
     <section id="couple" class="py-20 bg-white text-center hidden">
-      <h1 class="arabic gold text-2xl md:text-2xl mb-6">
-        السلام عليكم ورحمة الله وبركاته
+      <h1
+        class="arabic text-lg md:text-xl mb-6 text-navy fade-in"
+        style="font-family: 'Amiri', serif"
+      >
+        ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ
       </h1>
-      <p id="softType" 
-        class="text-md md:text-2xl text-navy leading-relaxed text-center max-w-md mx-auto px-4">
-      </p>
 
-      <style>
-        /* Efek huruf timbul */
-        .soft-letter {
-          opacity: 0;
-          display: inline-block;
-          transition: opacity 0.25s ease-in;
-        }
-        .soft-letter.show {
-          opacity: 1;
-        }
+      <p
+        id="softType"
+        class="text-md md:text-xl text-navy leading-relaxed text-center max-w-2xl mx-auto px-4 fade-in"
+      ></p>
 
-        /* Untuk menjaga jarak dan perataan agar tetap rapi */
-        #softType {
-          line-height: 1.6;
-          word-break: break-word;
-        }
-
-        /* Efek hanya aktif di MOBILE */
-        @media (min-width: 769px) {
-          #softType {
-            opacity: 1 !important;
-          }
-          .soft-letter {
-            opacity: 1 !important;
-            transition: none !important;
-          }
-        }
-      </style>
-
-      <div class="grid md:grid-cols-3 gap-12 items-start justify-center max-w-5xl mx-auto mt-10">
-        <div class="space-y-2">
-          <h3 class="text-2xl font-semibold text-navy">Moch Irvan Rahman Pradana</h3>
-          <p class="text-gray-500">Putra dari Bapak Fatkhur Rohman &amp; Ibu Tutik</p>
+      <div
+        class="grid md:grid-cols-3 gap-12 items-start justify-center max-w-5xl mx-auto mt-16 px-6"
+      >
+        <div class="space-y-3 slide-up">
+          <h3
+            class="text-3xl font-['Great_Vibes'] text-gold shimmer-gold"
+            style="font-weight: 700"
+          >
+            Moch Irvan R. P.
+          </h3>
+          <p class="text-gray-600 text-sm">
+            Putra dari Bapak Fatkhur Rohman & Ibu Tutik
+          </p>
         </div>
 
-        <div class="flex items-center justify-center">
-          <h3 class="text-5xl text-gold font-['Great_Vibes']">&amp;</h3>
+        <div class="flex items-center justify-center scale-in">
+          <h3
+            class="text-7xl text-gold font-['Great_Vibes'] border-2 border-gold rounded-full p-4 transform rotate-6 hover:rotate-0 transition duration-500"
+          >
+            &
+          </h3>
         </div>
 
-        <div class="space-y-2">
-          <h3 class="text-2xl font-semibold text-navy">Ma'rifatul Ulya</h3>
-          <p class="text-gray-500">Putri dari Bapak Zainuri &amp; Ibu Nurul Elfiyah</p>
+        <div class="space-y-3 slide-up delay-200">
+          <h3
+            class="text-3xl font-['Great_Vibes'] text-gold shimmer-gold"
+            style="font-weight: 700"
+          >
+            Ma'rifatul Ulya
+          </h3>
+          <p class="text-gray-600 text-sm">
+            Putri dari Bapak Zainuri & Ibu Nurul Elfiyah
+          </p>
         </div>
       </div>
 
-      <p class="text-md md:text-2xl text-navy text-center leading-relaxed mt-10 max-w-2xl mx-auto">
-        Turut mengundang kehadiran Bapak / Ibu / Saudara dalam acara lamaran kami yang akan dilaksanakan pada
+      <p
+        class="text-md md:text-xl text-navy text-center leading-relaxed mt-16 max-w-3xl mx-auto px-4 slide-up delay-400"
+      >
+        Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara sekalian
+        untuk turut hadir dan memberikan doa restu dalam acara <b>Lamaran (Khithbah)</b>
+        kami yang insya Allah akan dilaksanakan pada:
       </p>
     </section>
 
-    <!-- EVENT SECTION -->
+    <!-- Event Section -->
     <section id="event" class="py-20 bg-navy text-white text-center hidden">
-      <h2 class="text-4xl font-['Great_Vibes'] gold mb-10">Waktu &amp; Tempat</h2>
-      <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-xl border border-white/20">
-        <div class="mb-6">
-          <p class="text-lg tracking-wide">Hari</p>
-          <p class="text-2xl font-semibold gold mt-1">Sabtu, 13 Desember 2025</p>
-          <p class="text-base text-gray-100 mt-1">Pukul 09.30 WIB</p>
+      <h2
+        class="text-5xl shimmer-gold mb-10 fade-in"
+        style="font-family: 'Great Vibes', cursive; font-weight: 700"
+      >
+        Waktu & Tempat
+      </h2>
+      <div
+        class="max-w-xl mx-auto bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border-t-4 border-gold scale-in"
+      >
+        <div class="mb-8 p-4 border-b border-white/20">
+          <p class="text-lg tracking-wider text-gray-200">HARI & TANGGAL</p>
+          <p
+            class="text-3xl md:text-4xl font-extrabold text-gold mt-2 shimmer-gold"
+          >
+            Sabtu, 13 Desember 2025
+          </p>
+          <p class="text-xl text-gray-100 mt-2 font-medium">Pukul 09.30 WIB</p>
         </div>
-        <div class="mb-8">
-          <p class="text-lg tracking-wide">Bertempat di</p>
-          <p class="font-medium mt-2 leading-relaxed">
-            Kediaman Keluarga Bapak Zainuri &amp; Ibu Nurul Elfiyah<br />
+        <div class="mb-10 p-4">
+          <p class="text-lg tracking-wider text-gray-200">LOKASI ACARA</p>
+          <p class="text-xl font-medium mt-3 leading-relaxed">
+            Kediaman Keluarga <b>Bapak Zainuri & Ibu Nurul Elfiyah</b><br />
             Mojopurowetan – Bungah – Gresik
           </p>
         </div>
+
         <a
           href="https://maps.app.goo.gl/ZpPY21uD3yvU2ih39"
           target="_blank"
-          class="inline-block px-8 py-3 bg-gradient-to-r from-yellow-500 via-gold to-yellow-600 text-white rounded-full font-semibold tracking-wide shadow-lg hover:scale-105 hover:shadow-xl transition transform duration-300"
+          class="inline-flex items-center px-10 py-4 bg-gradient-to-r from-yellow-500 via-gold to-yellow-600 text-white rounded-full font-bold tracking-wide shadow-xl hover:shadow-2xl hover:scale-105 transition transform duration-300"
         >
-          📍 Lihat Lokasi
+          <span class="mr-2 text-xl">🗺️</span> Lihat Lokasi
         </a>
       </div>
     </section>
 
-    <!-- GALLERY SECTION -->
+    <!-- Gallery Section -->
     <section id="gallery" class="py-20 bg-white text-center hidden">
-      <p class="mt-10 text-center text-base italic text-gray-700 max-w-2xl mx-auto leading-relaxed">
-        “Suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara berkenan hadir 
-        untuk memberikan doa restu kepada kami.”
+      <!-- <h2
+        class="text-5xl shimmer-gold mb-10 fade-in"
+        style="font-family: 'Great Vibes', cursive; font-weight: 700"
+      >
+        Gallery Kami
+      </h2> -->
+
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto px-4 slide-up"
+      >
+        <template id="gallery-template">
+          <div class="overflow-hidden rounded-lg shadow-lg aspect-square">
+            <img
+              class="w-full h-full object-cover transform hover:scale-110 transition duration-500"
+            />
+          </div>
+        </template>
+      </div>
+
+      <p
+        class="mt-16 text-center text-xl italic text-gray-700 max-w-2xl mx-auto leading-relaxed px-4 slide-up delay-200"
+      >
+        “Semoga Allah SWT menyempurnakan kebahagiaan kami dan menjadikan lamaran ini
+        penuh berkah.”
       </p>
-      <br /><br /><br />
-      <p>With Love</p>
-      <h2 class="text-4xl font-['Great_Vibes'] gold mb-10">~ Irvan & Rifa ~</h2>
+
+      <p class="text-lg font-medium text-navy fade-in delay-400 mt-8">With Love,</p>
+      <h2
+        class="text-6xl shimmer-gold mt-2 scale-in delay-600"
+        style="font-family: 'Great Vibes', cursive; font-weight: 700"
+      >
+        Irvan & Rifa
+      </h2>
     </section>
 
-    <!-- FOOTER -->
-    <footer id="footer" class="py-6 bg-white text-center border-t border-slate-200 hidden">
-      <p class="text-sm text-gray-500">© 2025 kebahagIaVANRIFA</p>
+    <!-- Footer -->
+    <footer
+      id="footer"
+      class="py-6 bg-navy text-center border-t border-slate-200 hidden"
+    >
+      <p class="text-sm text-gray-400">
+        © 2025 kebahagIaVANRIFA | Created with Love.
+      </p>
     </footer>
 
-    <!-- FLOATING NAVBAR (MOBILE ONLY, hidden by default) -->
+    <!-- Floating Nav (Mobile) -->
     <nav
       id="floatingNav"
-      class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-white/90 backdrop-blur-md border border-gray-300 shadow-lg rounded-full px-4 py-2 justify-between items-center w-[90%] max-w-sm"
+      class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-white/95 backdrop-blur-md border border-gray-300 shadow-xl rounded-full px-5 py-3 justify-around items-center w-[90%] max-w-sm"
     >
-      <button class="nav-btn flex flex-col items-center text-xs text-navy" data-target="couple">
-        💑 <span>Couple</span>
+      <button
+        class="nav-btn flex flex-col items-center text-xs text-navy transition hover:text-gold"
+        data-target="couple"
+      >
+        <span class="text-xl">🤵👰</span>
+        <span>Couple</span>
       </button>
-      <button class="nav-btn flex flex-col items-center text-xs text-navy" data-target="event">
-        📅 <span>Event</span>
+      <button
+        class="nav-btn flex flex-col items-center text-xs text-navy transition hover:text-gold"
+        data-target="event"
+      >
+        <span class="text-xl">📅</span>
+        <span>Event</span>
       </button>
-      <button class="nav-btn flex flex-col items-center text-xs text-navy" data-target="gallery">
-        💌 <span>Gallery</span>
+      <button
+        class="nav-btn flex flex-col items-center text-xs text-navy transition hover:text-gold"
+        data-target="gallery"
+      >
+        <span class="text-xl">📸</span>
+        <span>Gallery</span>
       </button>
     </nav>
 
-    <!-- SCRIPT -->
+    <!-- Script -->
     <script>
       const openBtn = document.getElementById("openInvitation");
       const bgMusic = document.getElementById("bgMusic");
       const navbar = document.getElementById("navbar");
       const floatingNav = document.getElementById("floatingNav");
+      const sections = ["couple", "event", "gallery", "footer"].map((id) =>
+        document.getElementById(id)
+      );
 
-      const sections = [
-        "couple",
-        "event",
-        "gallery",
-        "footer",
-      ].map((id) => document.getElementById(id));
-
-      openBtn.addEventListener("click", () => {
-        // Sembunyikan hero
-        document.getElementById("home").classList.add("hidden");
-
-        // Tampilkan section dan navbar
-        navbar.classList.remove("hidden");
-        sections.forEach((sec, i) => {
-          setTimeout(() => sec.classList.remove("hidden"), i * 200);
-        });
-
-        // Mainkan musik
-        bgMusic.play();
-
-        // Tampilkan floating navbar (khusus mobile)
-        if (window.innerWidth <= 768) {
-          floatingNav.classList.add("active");
-        }
-
-        // Auto-scroll halus ke couple
-        document.getElementById("couple").scrollIntoView({ behavior: "smooth" });
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loadingScreen");
+        setTimeout(() => {
+          loader.classList.add("fade-out");
+          setTimeout(() => loader.remove(), 1000);
+        }, 2000); // tampil 2 detik sebelum fade-out
       });
 
-      // Navigasi floating (mobile)
+      openBtn.addEventListener("click", () => {
+        document.getElementById("home").classList.add("hidden");
+        if (window.innerWidth > 768) {
+          navbar.classList.remove("hidden");
+        }
+        sections.forEach((sec, i) =>
+          setTimeout(() => sec.classList.remove("hidden"), i * 200)
+        );
+
+        bgMusic.play().catch(() => console.log("Autoplay blocked"));
+        if (window.innerWidth <= 768) floatingNav.classList.add("active");
+
+        document.getElementById("couple").scrollIntoView({ behavior: "smooth" });
+        runTypewriterEffect();
+        runIntersectionObserver();
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth <= 768) {
+          navbar.classList.add("hidden");
+        } else {
+          navbar.classList.remove("hidden");
+        }
+      });
+
       document.querySelectorAll(".nav-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const target = document.getElementById(btn.dataset.target);
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - 60,
-              behavior: "smooth",
-            });
-            document.querySelectorAll(".nav-btn").forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
-          }
+          window.scrollTo({ top: target.offsetTop - 60, behavior: "smooth" });
+          document.querySelectorAll(".nav-btn").forEach((b) =>
+            b.classList.remove("active")
+          );
+          btn.classList.add("active");
         });
       });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // Jalankan hanya di mobile
-    if (window.innerWidth > 768) {
-      document.getElementById("softType").textContent =
-        "Dengan memohon rahmat dan ridho ALLAH SWT, kami yang berbahagia";
-      return;
-    }
+      function runTypewriterEffect() {
+        const text =
+          "Dengan memohon rahmat & ridho ALLAH SWT, kami yang berbahagia";
+        const container = document.getElementById("softType");
+        if (window.innerWidth > 768) {
+          container.textContent = text;
+          return;
+        }
+        container.innerHTML = "";
+        text.split("").forEach((char, i) => {
+          const span = document.createElement("span");
+          span.textContent = char === " " ? "\u00A0" : char;
+          span.classList.add("soft-letter");
+          container.appendChild(span);
+          setTimeout(() => span.classList.add("show"), i * 60);
+        });
+      }
 
-    const text = "Dengan memohon rahmat dan ridho ALLAH SWT, kami yang berbahagia";
-    const container = document.getElementById("softType");
-
-    // Buat elemen span per huruf agar tidak loncat
-    text.split("").forEach((char, index) => {
-      const span = document.createElement("span");
-      span.textContent = char === " " ? "\u00A0" : char; // jaga spasi
-      span.classList.add("soft-letter");
-      container.appendChild(span);
-
-      // Animasi fade-in tiap huruf
-      setTimeout(() => {
-        span.classList.add("show");
-      }, index * 60); // atur kecepatan muncul huruf (ms)
-    });
-  });
+      function runIntersectionObserver() {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        document
+          .querySelectorAll(".fade-in, .slide-up, .scale-in")
+          .forEach((el) => observer.observe(el));
+      }
     </script>
   </body>
 </html>
