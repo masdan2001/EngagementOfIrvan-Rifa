@@ -1,0 +1,47 @@
+.wind-particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    animation: windFlow 15s linear infinite;
+}
+
+@keyframes windFlow {
+    0% {
+        transform: translate(-5vw, 110vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(105vw, -10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Multiple particles with different animations */
+.wind-particle:nth-child(2n) {
+    width: 2px;
+    height: 2px;
+    animation-duration: 20s;
+    animation-delay: -2s;
+}
+
+.wind-particle:nth-child(3n) {
+    width: 4px;
+    height: 4px;
+    animation-duration: 25s;
+    animation-delay: -5s;
+}
+
+.wind-particle:nth-child(4n) {
+    width: 2px;
+    height: 2px;
+    animation-duration: 18s;
+    animation-delay: -8s;
+}
