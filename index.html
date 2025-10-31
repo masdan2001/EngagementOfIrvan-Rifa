@@ -2,16 +2,8 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Engagement Invitation Irvan & Rifa</title>
-    
-    <!-- Prevent text scaling -->
-    <style>
-      html {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-      }
-    </style>
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,9 +16,10 @@
 
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&family=Dancing+Script&display=swap"
       rel="stylesheet"
     />
+
     <style>
       :root {
         --color-navy: #1d3557;
@@ -37,47 +30,6 @@
         font-family: "Poppins", sans-serif;
         scroll-behavior: smooth;
         overflow-x: hidden;
-        width: 100%;
-        min-height: 100vh;
-        position: relative;
-        touch-action: manipulation;
-      }
-
-      /* Responsive container */
-      .container-fluid {
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        box-sizing: border-box;
-      }
-
-      /* Responsive text sizing */
-      @media (max-width: 360px) {
-        h1 { font-size: calc(1.5rem + 2vw) !important; }
-        h2 { font-size: calc(1.3rem + 1.5vw) !important; }
-        p { font-size: calc(0.9rem + 0.5vw) !important; }
-        .btn-soft { 
-          font-size: 0.9rem !important;
-          padding: 0.5rem 1.5rem !important;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-content {
-          padding: 0 1rem;
-        }
-        .section-padding {
-          padding: 2rem 1rem;
-        }
-      }
-
-      /* Fix image scaling */
-      img {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
       }
 
       .text-gold {
@@ -96,57 +48,29 @@
         animation: shimmer 3s linear infinite;
       }
       @keyframes shimmer {
-        0% {
-          background-position: 200% center;
-        }
-        100% {
-          background-position: -200% center;
-        }
+        0% { background-position: 200% center; }
+        100% { background-position: -200% center; }
       }
 
-      /* animasi fade in elegan */
+      /* animasi fade in */
       @keyframes fadeInSoft {
-        0% {
-          opacity: 0;
-          transform: translateY(40px);
-          filter: blur(4px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-          filter: blur(0);
-        }
+        0% { opacity: 0; transform: translateY(40px); filter: blur(4px); }
+        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
       }
       @keyframes fadeInRightSoft {
-        0% {
-          opacity: 0;
-          transform: translate(60px, -30px);
-          filter: blur(3px);
-        }
-        100% {
-          opacity: 1;
-          transform: translate(0, 0);
-          filter: blur(0);
-        }
+        0% { opacity: 0; transform: translate(60px, -30px); filter: blur(3px); }
+        100% { opacity: 1; transform: translate(0, 0); filter: blur(0); }
       }
 
-      /* animasi teks lembut */
-      .text-soft {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 1.8s ease;
-      }
-      .text-soft.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      .text-soft { opacity: 0; transform: translateY(20px); transition: all 1.8s ease; }
+      .text-soft.visible { opacity: 1; transform: translateY(0); }
 
       /* tombol lembut */
       .btn-soft {
         background: var(--color-gold);
         color: white;
         font-weight: bold;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         transition: all 0.4s ease;
       }
       .btn-soft:hover {
@@ -154,528 +78,423 @@
         background-color: #d4af37;
       }
 
-      /* fade-up tombol */
       @keyframes fadeUpSmooth {
-        0% {
-          opacity: 0;
-          transform: translateY(30px) scale(0.95);
-          filter: blur(3px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-          filter: blur(0);
-        }
+        0% { opacity: 0; transform: translateY(30px) scale(0.95); filter: blur(3px); }
+        100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
       }
-      .fade-up-smooth {
-        animation: fadeUpSmooth 2s ease-in-out forwards;
-      }
+      .fade-up-smooth { animation: fadeUpSmooth 2s ease-in-out forwards; }
+      .fade-out-soft { opacity: 0; transform: scale(1.05); transition: opacity 1s ease, transform 1s ease; }
 
-    /* Transisi keluar lembut */
-      .fade-out-soft {
-        opacity: 0;
-        transform: scale(1.05);
-        transition: opacity 1s ease, transform 1s ease;
-      }
+      /* efek float */
+      @keyframes float1 { 0%,100%{transform:translate(0,0) rotate(0deg);} 25%{transform:translate(5px,-8px) rotate(1deg);} 50%{transform:translate(0,-12px) rotate(0deg);} 75%{transform:translate(-5px,-8px) rotate(-1deg);} }
+      @keyframes float2 { 0%,100%{transform:translate(0,0) rotate(0deg);} 25%{transform:translate(-6px,-10px) rotate(-1deg);} 50%{transform:translate(0,-15px) rotate(0deg);} 75%{transform:translate(6px,-10px) rotate(1deg);} }
+      @keyframes float3 { 0%,100%{transform:translate(0,0) rotate(0deg);} 25%{transform:translate(4px,-6px) rotate(0.5deg);} 50%{transform:translate(0,-10px) rotate(0deg);} 75%{transform:translate(-4px,-6px) rotate(-0.5deg);} }
+      .float1 { animation: float1 12s ease-in-out infinite; }
+      .float2 { animation: float2 15s ease-in-out infinite; }
+      .float3 { animation: float3 18s ease-in-out infinite; }
 
-      /* efek angin */
-      @keyframes float1 {
-        0% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
-          transform: translate(5px, -8px) rotate(1deg);
-        }
-        50% {
-          transform: translate(0, -12px) rotate(0deg);
-        }
-        75% {
-          transform: translate(-5px, -8px) rotate(-1deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-      }
-      @keyframes float2 {
-        0% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
-          transform: translate(-6px, -10px) rotate(-1deg);
-        }
-        50% {
-          transform: translate(0, -15px) rotate(0deg);
-        }
-        75% {
-          transform: translate(6px, -10px) rotate(1deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-      }
-      @keyframes float3 {
-        0% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        25% {
-          transform: translate(4px, -6px) rotate(0.5deg);
-        }
-        50% {
-          transform: translate(0, -10px) rotate(0deg);
-        }
-        75% {
-          transform: translate(-4px, -6px) rotate(-0.5deg);
-        }
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-      }
-      .float1 {
-        animation: float1 12s ease-in-out infinite;
-      }
-      .float2 {
-        animation: float2 15s ease-in-out infinite;
-      }
-      .float3 {
-        animation: float3 18s ease-in-out infinite;
-      }
+      /* Loading */
+      #loadingScreen { transition: opacity 1s ease, transform 1s ease; }
+      #loadingScreen.fade-out { opacity: 0; transform: scale(1.05); }
 
-      /* loading */
-      #loadingScreen {
-        transition: opacity 1s ease, transform 1s ease;
-      }
-      #loadingScreen.fade-out {
-        opacity: 0;
-        transform: scale(1.05);
-      }
+      /* Typewriter Soft */
+      #softType { overflow: visible; line-height: 1.8; white-space: normal; text-align: center; }
+      .soft-letter { opacity: 0; display: inline-block; transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease; }
+      .soft-letter.show { opacity: 1; transform: translateY(0); }
 
-    /* Typewriter (Soft) */
-      #softType {
-        overflow: visible;
-        line-height: 1.8;
-        white-space: normal;
-        text-align: center;
-      }
-      .soft-letter {
-        opacity: 0;
-        display: inline-block;
-        transform: translateY(8px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-      .soft-letter.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      /* Responsive font */
+      #textCouple { font-size: clamp(2rem, 10vw, 5rem); }
+      #textWedding { font-size: clamp(1rem, 4vw, 2rem); }
+      #openInvitation { font-size: clamp(0.9rem, 2vw, 1.3rem); padding: clamp(0.5rem,1.5vw,1rem) clamp(1rem,4vw,3rem); }
+      .fade-in, .slide-up, .scale-in { opacity: 0; transform: translateY(20px); transition: all 1.2s ease; }
+      .is-visible { opacity: 1; transform: translateY(0); }
 
-      /* Disable animation on desktop */
+      /* Disable typewriter animation on desktop */
       @media (min-width: 769px) {
-        #softType,
-        .soft-letter {
-          opacity: 1 !important;
-          transition: none !important;
-          display: inline !important;
-        }
+        #softType, .soft-letter { opacity: 1 !important; transition: none !important; display: inline !important; }
       }
     </style>
   </head>
-
   <body class="bg-white text-slate-700">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
-<!-- Loading Screen -->
-<div
-  id="loadingScreen"
-  class="fixed inset-0 flex flex-col items-center justify-center bg-navy text-white z-50"
->
-  <!-- Judul typewriter -->
-  <h2 id="loadingText" class="text-3xl mb-6" style="font-family: 'Dancing Script', cursive; color:#caa356;">
-    <!-- Huruf akan muncul disini -->
-  </h2>
-
-  <!-- Dot animasi (hidden dulu) -->
-  <div id="loadingDots" class="flex space-x-2 opacity-0">
-    <div class="w-3 h-3 bg-gold rounded-full animate-bounce" style="animation-delay: 0s"></div>
-    <div class="w-3 h-3 bg-gold rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-    <div class="w-3 h-3 bg-gold rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
-  </div>
-</div>
-
-<style>
-/* Bounce dot animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.animate-bounce { animation: bounce 0.6s infinite; }
-
-/* Kilau / shimmer effect */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-.glint {
-  background: linear-gradient(90deg, #caa356 20%, #fff 50%, #caa356 80%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 1.5s linear forwards;
-}
-</style>
-
-<script>
-// Typewriter + glint + muncul dots
-window.addEventListener("load", () => {
-  const textElement = document.getElementById("loadingText");
-  const dots = document.getElementById("loadingDots");
-  const text = "#KebahagIaVANRIFA";
-
-  let index = 0;
-
-  function typeWriter() {
-    if(index < text.length) {
-      textElement.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeWriter, 68); // kecepatan huruf muncul
-    } else {
-      // Setelah selesai typewriter, tambahkan glint
-      textElement.classList.add("glint");
-
-      // Setelah glint selesai (1.5s), tampilkan dots
-      setTimeout(() => {
-        dots.classList.remove("opacity-0");
-        dots.classList.add("opacity-100", "transition", "duration-500");
-      }, 1500);
-    }
-  }
-
-  typeWriter();
-});
-</script>
-
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-navy text-white z-50">
+      <h2 id="loadingText" class="text-3xl mb-6" style="font-family: 'Dancing Script', cursive; color:#caa356;"></h2>
+      <div id="loadingDots" class="flex space-x-2 opacity-0">
+        <div class="w-3 h-3 bg-gold rounded-full animate-bounce" style="animation-delay:0s;"></div>
+        <div class="w-3 h-3 bg-gold rounded-full animate-bounce" style="animation-delay:0.2s;"></div>
+        <div class="w-3 h-3 bg-gold rounded-full animate-bounce" style="animation-delay:0.4s;"></div>
+      </div>
+    </div>
 
     <!-- HERO SECTION -->
+<!-- HERO SECTION -->
 <section
   id="home"
-  class="relative w-full min-h-screen flex flex-col justify-center items-center text-center overflow-hidden"
+  class="relative flex flex-col items-center justify-center text-center text-white w-full min-h-screen overflow-hidden"
 >
   <!-- Background -->
   <img
-    src="img/bg/bg.jpg"
+    src="bg.jpg"
     alt="Background"
     class="absolute inset-0 w-full h-full object-cover"
   />
+
+  <!-- Overlay warna gelap -->
   <div class="absolute inset-0 bg-navy/60"></div>
 
-  <!-- Dekorasi bawah -->
+  <!-- Dekorasi Overlay -->
   <img
-    src="img/element/bottom-decor.png"
-    class="absolute bottom-0 w-full max-w-full object-contain max-h-[30vh]"
+    id="overlayImage1"
+    src="1.png"
+    class="absolute left-0 w-full max-w-lg z-10 opacity-0"
+    style="bottom: 0; transform: translateY(20%);"
   />
 
-  <!-- Teks -->
-  <div class="relative z-10 container-fluid hero-content flex flex-col items-center">
-    <p class="text-yellow-500 text-sm sm:text-base md:text-lg font-semibold mb-2 drop-shadow-md">
-      The Engagement of
-    </p>
-    <h1 class="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 leading-tight tracking-wide">
-      Irvan & Rifa
-    </h1>
+  <img
+    id="overlayImage2"
+    src="2.png"
+    class="absolute right-0 w-full max-w-lg z-20 opacity-0"
+    style="bottom: 0; transform: translateY(15%);"
+  />
 
-    <button
-      id="openInvitation"
-      class="bg-yellow-500 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-lg hover:bg-yellow-400 transition-all"
-    >
-      Open Invitation
-    </button>
+  <img
+    id="overlayImage3"
+    src="3.png"
+    class="absolute top-0 right-0 w-full max-w-md z-30 opacity-0"
+    style="transform: translateY(-10%);"
+  />
+
+  <!-- Teks & Tombol -->
+<div
+  class="relative z-40 flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 translate-y-6 sm:translate-y-10 lg:translate-y-0 pt-4 sm:pt-10 lg:pt-0"
+>
+<p
+  id="textWedding"
+  class="text-soft text-navy text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 shimmer-gold drop-shadow-md tracking-wide"
+>
+  The Engagement of
+</p>
+
+<h1
+  id="textCouple"
+  class="text-soft text-navy text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-['Great_Vibes'] leading-tight mb-8 sm:mb-10"
+>
+  Irvan & Rifa
+</h1>
+
+
+<button
+  id="openInvitation"
+  class="opacity-0 px-8 py-3 sm:px-10 sm:py-4 text-base sm:text-lg rounded-full font-semibold
+         bg-gradient-to-r from-yellow-700 via-yellow-600 to-yellow-700
+         border border-yellow-500/50
+         text-white
+         shadow-md shadow-yellow-900/20
+         transition-all duration-500
+         hover:scale-105 hover:shadow-lg hover:shadow-yellow-900/30
+         tracking-wide"
+>
+  Open Invitation
+</button>
+
+
   </div>
 </section>
 
-        <!-- MUSIC -->
-    <audio id="bgMusic" src="mp3/lagu.mp3" loop preload="auto"></audio>
 
-    <!-- Tombol Musik -->
-    <button
-      id="musicToggle"
-      class="fixed bottom-5 right-5 bg-gold text-white rounded-full p-3 shadow-lg hover:bg-yellow-500 transition-all duration-300 z-50 hidden"
+    <!-- MUSIC -->
+    <audio id="bgMusic" src="lagu.mp3" loop preload="auto"></audio>
+    <button id="musicToggle" class="fixed bottom-5 right-5 bg-gold text-white rounded-full p-3 shadow-lg hover:bg-yellow-500 transition-all duration-300 z-50 hidden animate-spin-slow">🎵</button>
+
+    <style>
+    @keyframes spin-slow {
+      from {
+      transform: rotate(0deg);
+      }
+      to {
+      transform: rotate(360deg);
+      }
+    }
+    
+    .animate-spin-slow {
+      animation: spin-slow 4s linear infinite;
+      animation-play-state: running;
+    }
+
+    /* Pause animation when music is paused */
+    .animate-spin-slow.paused {
+      animation-play-state: paused;
+    }
+    </style>
+
+<section id="couple" class="py-20 bg-gradient-to-b from-white to-gray-50 text-center hidden overflow-hidden">
+  <div class="max-w-5xl mx-auto px-6 relative">
+    <div class="absolute inset-0 bg-[url('img/element/3.png')] opacity-10 bg-repeat bg-center transform rotate-6 scale-150 pointer-events-none"></div>
+    
+<h1 class="arabic text-2xl md:text-3xl mb-8 text-navy font-semibold fade-in relative"
+    style="text-shadow: 1px 1px 2px rgba(0,0,0,0.15); letter-spacing: 0.5px;">
+  ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ
+</h1>
+
+<p id="softType"
+   class="text-md md:text-xl text-navy leading-relaxed text-center mx-auto px-4 fade-in mb-12"
+   style="font-style: italic; letter-spacing: 0.5px; line-height: 1.8; max-width: 700px;">
+</p>
+
+<div class="max-w-4xl mx-auto p-8 bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-gold/20 hover:shadow-2xl hover:shadow-navy/10 transition-all duration-500 flex flex-col md:flex-row items-center justify-between gap-8">
+  <!-- Pasangan 1 -->
+  <div class="text-center md:text-left space-y-3">
+    <h3 class="text-2xl sm:text-3xl font-['Great_Vibes'] text-gold shimmer-gold font-bold">
+      Moch Irvan Rahman Pradana
+    </h3>
+    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+      Putra dari <br/>
+      <span class="font-semibold text-navy">Bapak Fatkhur Rohman</span> & <span class="font-semibold text-navy">Ibu Tutik</span>
+    </p>
+  </div>
+
+  <!-- Simbol & -->
+ <div class="text-4xl sm:text-6xl md:text-7xl text-gold font-['Great_Vibes'] shimmer-gold text-center mx-4">
+  &
+</div>
+
+  <!-- Pasangan 2 -->
+  <div class="text-center md:text-right space-y-3">
+    <h3 class="text-2xl sm:text-3xl font-['Great_Vibes'] text-gold shimmer-gold font-bold">
+      Ma'rifatul Ulya
+    </h3>
+    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+      Putri dari <br/>
+      <span class="font-semibold text-navy">Bapak Zainuri</span> & <span class="font-semibold text-navy">Ibu Nurul Elfiyah</span>
+    </p>
+  </div>
+</div>
+
+    <p class="text-base sm:text-lg md:text-xl text-navy leading-relaxed mt-16 max-w-3xl mx-auto slide-up delay-600">
+      Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara sekalian untuk turut hadir dan memberikan doa restu dalam acara <b class="text-gold font-bold">Lamaran (Khithbah)</b> kami yang insya Allah akan dilaksanakan pada
+    </p>
+  </div>
+</section>
+
+<section id="event" class="py-20 bg-gradient-to-b from-[#1d3557] to-[#1d3557]/90 text-white text-center hidden relative overflow-hidden">
+  <!-- Background dekoratif subtle -->
+  <div class="absolute inset-0 bg-[url('img/element/1.png')] opacity-10 bg-repeat bg-center transform rotate-12 scale-150 pointer-events-none blur-sm"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-[#1d3557]/70 to-transparent pointer-events-none"></div>
+
+  <div class="max-w-3xl mx-auto px-6 relative">
+    <h2
+      class="text-3xl sm:text-4xl shimmer-gold mb-12 fade-in hover:scale-105 transition-transform duration-500"
+      style="font-family: 'Great Vibes', cursive; font-weight: 700"
     >
-      🎵
-    </button>
+      Waktu & Tempat
+    </h2>
 
-    <!-- COUPLE SECTION -->
-    <section id="couple" class="py-12 sm:py-16 md:py-20 bg-white text-center hidden section-padding">
-      <div class="container-fluid max-w-5xl mx-auto">
-        <h1 class="arabic text-lg sm:text-xl md:text-2xl mb-6 text-navy fade-in">
-          ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ
-        </h1>
-
-        <p
-          id="softType"
-          class="text-md md:text-xl text-navy leading-relaxed text-center max-w-2xl mx-auto px-4 fade-in"
-        ></p>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 items-center justify-center mt-8 slide-up"
-        >
-          <div class="space-y-3">
-            <h3
-              class="text-2xl sm:text-3xl font-['Great_Vibes'] text-gold shimmer-gold font-bold"
-            >
-              Moch Irvan Rahman Pradana
-            </h3>
-            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Putra dari Bapak Fatkhur Rohman & Ibu Tutik
-            </p>
-          </div>
-
-          <div class="flex items-center justify-center scale-in">
-            <div
-              class="border-2 border-gold rounded-full p-6 sm:p-8 transform rotate-6 hover:rotate-0 transition duration-500"
-            >
-              <h3 class="text-6xl sm:text-7xl text-gold font-['Great_Vibes']">
-                &
-              </h3>
-            </div>
-          </div>
-
-          <div class="space-y-3 delay-200 slide-up">
-            <h3
-              class="text-2xl sm:text-3xl font-['Great_Vibes'] text-gold shimmer-gold font-bold"
-            >
-              Ma'rifatul Ulya
-            </h3>
-            <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Putri dari Bapak Zainuri & Ibu Nurul Elfiyah
-            </p>
-          </div>
-        </div>
-
-        <p
-          class="text-base sm:text-lg md:text-xl text-navy leading-relaxed mt-8 max-w-3xl mx-auto slide-up delay-400"
-        >
-          Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara
-          sekalian untuk turut hadir dan memberikan doa restu dalam acara
-          <b>Lamaran (Khithbah)</b> kami yang insya Allah akan dilaksanakan
-          pada:
+    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border border-gold/50 scale-in hover:shadow-gold/50 transition-all duration-500">
+      
+      <div class="mb-8 p-6 border-b border-white/20 hover:border-gold transition-colors duration-500 hover:-translate-y-1 transform">
+        <p class="text-base sm:text-lg tracking-wider text-gray-200 mb-4">
+          <span class="text-gold shimmer-gold">⚜️</span> HARI & TANGGAL <span class="text-gold shimmer-gold">⚜️</span>
+        </p>
+        <p class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gold mt-2 shimmer-gold">
+          Sabtu, 13 Desember 2025
+        </p>
+        <p class="text-base sm:text-xl text-gray-100 mt-3 font-medium tracking-wider">
+          Pukul 09.30 WIB
         </p>
       </div>
-    </section>
 
-    <!-- EVENT SECTION -->
-    <section id="event" class="py-20 bg-navy text-white text-center hidden">
-      <div class="max-w-3xl mx-auto px-6">
-        <h2
-          class="text-3xl sm:text-4xl shimmer-gold mb-12 fade-in"
-          style="font-family: 'Great Vibes', cursive; font-weight: 700"
-        >
-          Waktu & Tempat
-        </h2>
-
-        <div
-          class="bg-white/10 backdrop-blur-sm rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl border-t-4 border-gold scale-in"
-        >
-          <div class="mb-8 p-4 border-b border-white/20">
-            <p class="text-base sm:text-lg tracking-wider text-gray-200">
-              HARI & TANGGAL
-            </p>
-            <p
-              class="text-1xl sm:text-2xl md:text-3xl font-extrabold text-gold mt-2 shimmer-gold"
-            >
-              Sabtu, 13 Desember 2025
-            </p>
-            <p class="text-sm sm:text-xl text-gray-100 mt-2 font-medium">
-              Pukul 09.30 WIB
-            </p>
-          </div>
-
-          <div class="mb-10 p-4">
-            <p class="text-base sm:text-lg tracking-wider text-gray-200">
-              LOKASI ACARA
-            </p>
-            <p class="text-sm sm:text-xl font-medium mt-3 leading-relaxed">
-              Kediaman Keluarga <br />
-              <b>Bapak Zainuri & Ibu Nurul Elfiyah</b><br />
-              Mojopurowetan – Bungah – Gresik
-            </p>
-          </div>
-
-          <a
-            href="https://maps.app.goo.gl/ZpPY21uD3yvU2ih39"
-            target="_blank"
-            class="inline-flex items-center px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 via-gold to-yellow-600 text-white rounded-full font-bold tracking-wide shadow-xl hover:shadow-2xl hover:scale-105 transition transform duration-300"
-          >
-            <span class="mr-2 text-lg sm:text-xl">🗺️</span> Lihat Lokasi
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <section id="gallery" class="py-20 bg-white text-center hidden">
-      <div class="max-w-6xl mx-auto px-4">
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto slide-up"
-        >
-          <template id="gallery-template">
-            <div class="overflow-hidden rounded-2xl shadow-lg aspect-square">
-              <img
-                class="w-full h-full object-cover transform hover:scale-110 transition duration-700"
-              />
-            </div>
-          </template>
-        </div>
-
-        <p
-          class="mt-16 text-center text-lg sm:text-xl italic text-gray-700 max-w-2xl mx-auto leading-relaxed slide-up delay-200"
-        >
-          “Semoga Allah SWT menyempurnakan kebahagiaan kami dan menjadikan
-          lamaran ini penuh berkah.”
+      <div class="mb-10 p-6 hover:-translate-y-1 transition-transform duration-500">
+        <p class="text-base sm:text-lg tracking-wider text-gray-200 mb-4">
+          <span class="text-gold shimmer-gold">⚜️</span> LOKASI ACARA <span class="text-gold shimmer-gold">⚜️</span>
         </p>
-
-        <br /><br /><br />
-
-        <p
-          class="text-lg sm:text-xl font-medium text-navy fade-in delay-400 mt-8"
-        >
-          With Love
+        <p class="text-base sm:text-xl font-medium mt-3 leading-relaxed">
+          Kediaman Keluarga <br />
+          <b class="text-gold shimmer-gold block mt-2 mb-2">Bapak Zainuri & Ibu Nurul Elfiyah</b>
+          <span class="text-gray-200">Mojopurowetan – Bungah – Gresik</span>
         </p>
-        <h2
-          class="text-3xl sm:text-4xl shimmer-gold mt-2 scale-in delay-600"
-          style="font-family: 'Great Vibes', cursive; font-weight: 700"
-        >
-          Irvan & Rifa
-        </h2>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer
-      id="footer"
-      class="py-6 bg-navy text-center border-t border-slate-200 hidden"
-    >
-      <p class="text-sm text-gray-400">
-        © 2025 kebahagIaVANRIFA | Created with Love.
+      <a
+        href="https://maps.app.goo.gl/ZpPY21uD3yvU2ih39"
+        target="_blank"
+        class="inline-flex items-center px-10 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-yellow-500 via-gold to-yellow-600 text-white rounded-full font-bold tracking-wide shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 group animate-bounce-slow"
+      >
+        <span class="mr-3 text-xl sm:text-2xl transition-all duration-300">🗺️</span> 
+        <span class="group-hover:text-white/90">Lihat Lokasi</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animasi bounce lembut */
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite;
+  }
+</style>
+
+
+<section id="gallery" class="py-20 text-center hidden relative overflow-hidden">
+  <!-- BACKGROUND IMAGE -->
+  <div class="absolute inset-0">
+    <!-- Foto utama -->
+    <img src="img/bg/bg4.jpg" alt="Gallery Background" class="w-full h-full object-cover opacity-40">
+    <!-- Dekorasi PNG overlay -->
+    <div class="absolute inset-0 bg-[url('img/element/2.png')] opacity-15 bg-repeat bg-center transform -rotate-12 scale-150 pointer-events-none"></div>
+    <!-- Soft light overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/50 to-white/10 pointer-events-none"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 relative">
+    <!-- GRID FOTO -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto slide-up">
+      <template id="gallery-template">
+        <div class="overflow-hidden rounded-2xl shadow-xl aspect-square group hover:shadow-gold/20 transition-all duration-500 border border-transparent hover:border-gold/50">
+          <img class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
+        </div>
+      </template>
+    </div>
+
+    <!-- QUOTE -->
+    <div class="mt-20 mb-20 max-w-2xl mx-auto p-8 rounded-3xl bg-white/70 backdrop-blur-sm shadow-2xl border-t-4 border-gold/50 slide-up delay-200">
+      <p class="text-center text-lg sm:text-xl italic text-gray-700 leading-relaxed">
+        "Semoga Allah SWT menyempurnakan kebahagiaan kami dan menjadikan
+        lamaran ini penuh berkah."
       </p>
-    </footer>
+    </div>
 
+    <!-- SIGNATURE -->
+    <div class="space-y-4 fade-in delay-400">
+      <p class="text-lg sm:text-xl font-medium text-navy">
+        With Love
+      </p>
+      <h2 class="text-3xl sm:text-4xl shimmer-gold scale-in delay-600"
+        style="font-family: 'Great Vibes', cursive; font-weight: 700">
+        Irvan & Rifa
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<footer id="footer" class="py-8 bg-gradient-to-b from-[#1d3557]/90 to-[#1d3557] text-center border-t border-gold/20 hidden">
+<p class="text-sm text-gray-300 hover:text-white/90 transition-colors duration-300">
+  EngagementIrvan&Rifa | © 2025 <span class="text-gold animate-pulse">♥</span>
+  </p>
+</footer>   
     <script>
-      const openBtn = document.getElementById("openInvitation");
-      const bgMusic = document.getElementById("bgMusic");
-      const navbar = document.getElementById("navbar");
-      const musicToggle = document.getElementById("musicToggle");
-      const sections = ["couple", "event", "gallery", "footer"].map((id) =>
-        document.getElementById(id)
-      );
+      // Semua efek loading, typewriter, animasi dekorasi, tombol, music toggle
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loadingScreen");
+  const loadingText = document.getElementById("loadingText");
+  const loadingDots = document.getElementById("loadingDots");
+  const overlay1 = document.getElementById("overlayImage1");
+  const overlay2 = document.getElementById("overlayImage2");
+  const overlay3 = document.getElementById("overlayImage3");
+  const textWedding = document.getElementById("textWedding");
+  const textCouple = document.getElementById("textCouple");
+  const btn = document.getElementById("openInvitation");
 
-      window.addEventListener("load", () => {
-        const loader = document.getElementById("loadingScreen");
-        const overlay1 = document.getElementById("overlayImage1");
-        const overlay2 = document.getElementById("overlayImage2");
-        const overlay3 = document.getElementById("overlayImage3");
-        const textWedding = document.getElementById("textWedding");
-        const textCouple = document.getElementById("textCouple");
-        const btn = document.getElementById("openInvitation");
+  const loadingMessage = "#KebahagIaVANRIFA";
+  let i = 0;
+
+  // Munculkan teks pelan
+  loadingText.style.opacity = "0";
+  loadingText.style.transition = "opacity 1s ease-in-out";
+  setTimeout(() => (loadingText.style.opacity = "1"), 300);
+
+  // Efek ketikan lembut
+  const typing = setInterval(() => {
+    loadingText.textContent = loadingMessage.slice(0, i++);
+    if (i > loadingMessage.length) {
+      clearInterval(typing);
+      loadingDots.style.transition = "opacity 1s ease-in-out";
+      loadingDots.style.opacity = "1";
+
+      // ✨ Setelah teks selesai → aktifkan shimmer
+      loadingText.classList.add("shimmer");
+
+      // ✨ Setelah shimmer selesai 2x baru lanjut fade-out
+      setTimeout(() => {
+        loader.style.transition = "opacity 1.5s ease-in-out";
+        loader.style.opacity = "0";
+
+        setTimeout(() => loader.remove(), 1500);
+
+        // ✨ Animasi hero masuk lembut
+        setTimeout(() => { overlay1.style.animation = "fadeInSoft 2.5s ease-in-out forwards"; }, 500);
+        setTimeout(() => { overlay2.style.animation = "fadeInSoft 2.5s ease-in-out forwards"; }, 1300);
+        setTimeout(() => { overlay3.style.animation = "fadeInRightSoft 2.8s ease-in-out forwards"; }, 2200);
 
         setTimeout(() => {
-          loader.classList.add("fade-out");
-          setTimeout(() => loader.remove(), 1000);
+          overlay1.classList.add("float1");
+          overlay2.classList.add("float2");
+          overlay3.classList.add("float3");
+        }, 5000);
 
-          // 1.png
-          setTimeout(() => {
-            overlay1.style.animation = "fadeInSoft 2s ease forwards";
-          }, 500);
-          // 2.png
-          setTimeout(() => {
-            overlay2.style.animation = "fadeInSoft 2s ease forwards";
-          }, 1500);
-          // 3.png
-          setTimeout(() => {
-            overlay3.style.animation = "fadeInRightSoft 2.2s ease forwards";
-          }, 2500);
+        setTimeout(() => textWedding.classList.add("visible"), 2000);
+        setTimeout(() => textCouple.classList.add("visible"), 3000);
+        setTimeout(() => {
+          btn.classList.add("fade-up-smooth");
+          btn.style.opacity = "1";
+        }, 4200);
+      }, 2800); // shimmer berputar 2x dulu
+    }
+  }, 150);
+});
 
-          // aktifkan efek angin setelah semua muncul
-          setTimeout(() => {
-            overlay1.classList.add("float1");
-            overlay2.classList.add("float2");
-            overlay3.classList.add("float3");
-          }, 4800);
+      const openBtn = document.getElementById("openInvitation");
+      const bgMusic = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+      const sections = ["couple", "event", "gallery", "footer"].map(id => document.getElementById(id));
 
-          // teks muncul lembut
-          setTimeout(() => textWedding.classList.add("visible"), 1700);
-          setTimeout(() => textCouple.classList.add("visible"), 2600);
-
-          // tombol
-          setTimeout(() => {
-            btn.classList.add("fade-up-smooth");
-            btn.style.opacity = "1";
-          }, 3600);
-        }, 1200);
-      });
-
-            openBtn.addEventListener("click", () => {
+      openBtn.addEventListener("click", () => {
         const home = document.getElementById("home");
         home.classList.add("fade-out-soft");
-
         setTimeout(() => {
           home.classList.add("hidden");
           musicToggle.classList.remove("hidden");
-          if (window.innerWidth > 768) navbar.classList.remove("hidden");
-          sections.forEach((sec, i) =>
-            setTimeout(() => sec.classList.remove("hidden"), i * 200)
-          );
+          sections.forEach((sec, i) => setTimeout(() => sec.classList.remove("hidden"), i*200));
         }, 1000);
-
         bgMusic.play().catch(() => console.log("Autoplay blocked"));
       });
 
-      // Musik toggle
+      // Music toggle
       let playing = true;
       musicToggle.addEventListener("click", () => {
-        if (playing) {
-          bgMusic.pause();
-          musicToggle.textContent = "🔇";
-        } else {
-          bgMusic.play();
-          musicToggle.textContent = "🎵";
-        }
+        if(playing){ bgMusic.pause(); musicToggle.textContent="🔇"; }
+        else { bgMusic.play(); musicToggle.textContent="🎵"; }
         playing = !playing;
       });
 
-        function runTypewriterEffect() {
-    const text =
-      "Dengan memohon rahmat & ridho ALLAH SWT, kami yang berbahagia";
-    const container = document.getElementById("softType");
-    if (window.innerWidth > 768) {
-      container.textContent = text;
-      return;
-    }
-    container.innerHTML = "";
-    text.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char === " " ? "\u00A0" : char;
-      span.classList.add("soft-letter");
-      container.appendChild(span);
-      setTimeout(() => span.classList.add("show"), i * 60);
-    });
-  }
-
-  function runIntersectionObserver() {
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-visible");
-            obs.unobserve(e.target);
-          }
+      // Typewriter soft
+      function runTypewriterEffect() {
+        const text = "Dengan memohon rahmat & ridho ALLAH SWT, kami yang berbahagia";
+        const container = document.getElementById("softType");
+        if(window.innerWidth > 768){ container.textContent = text; return; }
+        container.innerHTML = "";
+        text.split("").forEach((char,i)=>{
+          const span=document.createElement("span");
+          span.textContent=char===" "?"\u00A0":char;
+          span.classList.add("soft-letter");
+          container.appendChild(span);
+          setTimeout(()=>span.classList.add("show"), i*60);
         });
-      },
-      { threshold: 0.2 }
-    );
-    document
-      .querySelectorAll(".fade-in, .slide-up, .scale-in")
-      .forEach((el) => observer.observe(el));
-  }
-  
+      }
+      runTypewriterEffect();
+
+      // Intersection observer
+      const observer = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add("is-visible"); obs.unobserve(e.target);}
+        });
+      }, {threshold:0.2});
+      document.querySelectorAll(".fade-in, .slide-up, .scale-in").forEach(el=>observer.observe(el));
     </script>
   </body>
 </html>
