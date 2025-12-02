@@ -250,12 +250,6 @@ body {
   background-color: #fff;
   overflow-x: hidden;
   position: relative;
-
-  /* GLOBAL BACKGROUND */
-  background-image: url('bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 /* Tampilan desktop tetap ukuran mobile */
@@ -272,110 +266,203 @@ body {
 .section-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.2); /* putih tipis */
+  backdrop-filter: blur(6px); /* efek blur halus */
+  pointer-events: none; /* supaya tidak menghalangi klik */
 }
 
 </style>
 
 <section id="couple" class="py-20 text-center hidden relative overflow-hidden">
   
-  <!-- Soft Overlay -->
-  <div class="section-overlay"></div>
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full">
+  <img src="bghome.jpg" alt="Background"
+   class="w-full h-full object-cover" />
+</div>
 
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+<!-- Konten di atas background -->
+<div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 py-20">
+  <!-- Ornamen -->
+  <div class="absolute inset-0 bg-[url('3.png')] opacity-10 bg-repeat bg-center transform rotate-6 scale-150 pointer-events-none"></div>
 
-    <!-- Ornamen -->
-    <div class="absolute inset-0 bg-[url('3.png')] opacity-10 bg-repeat bg-center transform rotate-6 scale-150 pointer-events-none"></div>
+  <!-- Content -->
+  <h1 class="arabic text-xl sm:text-2xl md:text-3xl mb-6 text-navy font-semibold fade-in"
+  style="text-shadow: 1px 1px 2px rgba(0,0,0,0.15); letter-spacing: 0.5px;"></h1>
+  ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ
+  </h1>
 
-    <!-- Content -->
-    <h1 class="arabic text-xl sm:text-2xl md:text-3xl mb-6 text-navy font-semibold fade-in"
-        style="text-shadow: 1px 1px 2px rgba(0,0,0,0.15); letter-spacing: 0.5px;">
-      ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ
-    </h1>
+  <p class="text-sm sm:text-base md:text-lg text-navy leading-relaxed mt-8 slide-up"> 
+  Dengan memohon rahmat dan ridho Allah SWT, kami yang berbahagia:
+  </p>
 
-    <p class="text-sm sm:text-base md:text-lg text-navy leading-relaxed mt-8 slide-up"> 
-      Dengan memohon rahmat dan ridho Allah SWT, kami yang berbahagia:
-    </p>
+  <!-- Couple Information -->
+  <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
 
-    <!-- Couple Information -->
-    <div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
-
-      <!-- Groom -->
-      <div class="text-center space-y-2 flex-1">
-        <h3 class="text-xl sm:text-2xl font-['Great_Vibes'] text-gold shimmer-gold font-bold">
-          Moch Irvan Rahman Pradana
-        </h3>
-        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
-          Putra dari <br>
-          <span class="font-semibold text-navy">Bapak Fatkhur Rohman</span> & 
-          <span class="font-semibold text-navy">Ibu Tutik</span>
-        </p>
-      </div>
-
-      <div class="text-3xl sm:text-4xl md:text-5xl text-gold font-['Great_Vibes'] shimmer-gold">&</div>
-
-      <!-- Bride -->
-      <div class="text-center space-y-2 flex-1">
-        <h3 class="text-xl sm:text-2xl font-['Great_Vibes'] text-gold shimmer-gold font-bold">
-          Ma'rifatul Ulya
-        </h3>
-        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
-          Putri dari <br>
-          <span class="font-semibold text-navy">Bapak Zainuri</span> & 
-          <span class="font-semibold text-navy">Ibu Nurul Elfiyah</span>
-        </p>
-      </div>
-
-    </div>
-
-    <p class="text-sm sm:text-base md:text-lg text-navy leading-relaxed mt-12 slide-up"> 
-      Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara sekalian untuk hadir dan memberikan doa restu pada acara 
-      <b class="text-gold font-bold">Lamaran (Khithbah)</b> yang insya Allah akan dilaksanakan pada:
-    </p>
-
+  <!-- Groom -->
+  <div class="text-center space-y-2 flex-1">
+  <h3 class="text-xl sm:text-2xl font-['Great_Vibes'] text-gold shimmer-gold font-bold">
+  Moch Irvan Rahman Pradana
+  </h3>
+  <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+  Putra dari <br>
+  <span class="font-semibold text-navy">Bapak Fatkhur Rohman</span> & 
+  <span class="font-semibold text-navy">Ibu Tutik</span>
+  </p>
   </div>
+
+  <div class="text-3xl sm:text-4xl md:text-5xl text-gold font-['Great_Vibes'] shimmer-gold">&</div>
+
+  <!-- Bride -->
+  <div class="text-center space-y-2 flex-1">
+  <h3 class="text-xl sm:text-2xl font-['Great_Vibes'] text-gold shimmer-gold font-bold">
+  Ma'rifatul Ulya
+  </h3>
+  <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+  Putri dari <br>
+  <span class="font-semibold text-navy">Bapak Zainuri</span> & 
+  <span class="font-semibold text-navy">Ibu Nurul Elfiyah</span>
+  </p>
+  </div>
+  </div>
+
+  <p class="text-sm sm:text-base md:text-lg text-navy leading-relaxed mt-12 slide-up"> 
+  Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara sekalian untuk hadir dan memberikan doa restu pada acara 
+  <b class="text-gold font-bold">Lamaran (Khithbah)</b> kami yang insya Allah akan dilaksanakan pada :
+  </p>
+</div>
+  <img
+  id="coupleOverlay"
+  src="5.png"
+  class="absolute bottom-0 right-0 w-full max-w-md z-30 opacity-0 animate-floating"
+  style="transform: translateY(10%);"
+  />
 </section>
+
+<style>
+  @keyframes float {
+  0% { transform: translate(0, 10%); }
+  50% { transform: translate(10px, 10%); }
+  100% { transform: translate(0, 10%); }
+  }
+  .animate-floating {
+  animation: float 3s ease-in-out infinite;
+  }
+</style>
 
 
 <section id="event" class="py-20 text-center hidden relative overflow-hidden">
+  <!-- Decorative floating ornaments -->
+  <img src="leaf-left.png" alt="" class="absolute -left-8 top-6 w-28 opacity-80 z-0 float1" style="filter:drop-shadow(0 8px 18px rgba(29,53,87,0.12)); transform-origin:center; animation-delay:0.6s;">
+  <img src="leaf-right.png" alt="" class="absolute -right-6 top-20 w-32 opacity-75 z-0 float2" style="filter:drop-shadow(0 10px 22px rgba(29,53,87,0.10)); animation-delay:1s;">
 
-  <!-- Soft Overlay -->
-  <div class="section-overlay"></div>
+  <!-- Background Image -->
+  <div class="absolute inset-0 w-full h-full">
+    <img src="bg.jpg" alt="Background Event" class="w-full h-full object-cover" />
+
+    <!-- Soft Blue Overlay -->
+    <div class="absolute inset-0 
+        bg-gradient-to-b 
+        from-blue-50/70 
+        via-white/60 
+        to-blue-100/40 
+        backdrop-blur-md"></div>
+  </div>
 
   <div class="max-w-2xl mx-auto px-6 relative z-10">
-
     <h2
       class="text-4xl sm:text-5xl text-navy mb-16 fade-in drop-shadow-md"
-      style="font-family: 'Great Vibes', cursive; font-weight: 700"
+      style="font-family: 'Great Vibes', cursive; font-weight: 700; transition-delay:0.2s;"
     >
       Waktu & Tempat
     </h2>
 
     <!-- Date Card -->
-    <div class="mb-8 p-8 sm:p-10 bg-white/90 backdrop-blur-md rounded-3xl border border-gold/30 shadow-2xl transition-all duration-500 scale-in">
+    <div class="mb-8 p-8 sm:p-10 bg-white/80 backdrop-blur-md rounded-3xl border border-gold/30 shadow-2xl transition-all duration-500 scale-in group hover:scale-105 hover:shadow-2xl"
+         style="transform-origin:center; will-change:transform; transition-delay:0.3s;">
       <p class="text-xs tracking-widest text-gray-400 uppercase font-semibold mb-4 shimmer-gold">Hari & Tanggal</p>
-      <p class="text-xl sm:text-3xl font-bold text-navy mb-3">Sabtu, 13 Desember 2025</p>
-      <p class="text-md text-gold font-semibold">Pukul 09.30 WIB</p>
+
+      <div class="flex items-center justify-center gap-4">
+        <div class="flex items-center justify-center w-20 h-20 rounded-full bg-gold/10 text-gold text-2xl font-bold shadow-sm transform transition-all duration-700 group-hover:rotate-3"
+             style="backdrop-filter: blur(4px);">
+          13
+        </div>
+        <div class="text-left">
+          <p class="text-xl sm:text-3xl font-bold text-navy mb-1">Sabtu, 13 Desember 2025</p>
+          <p class="text-md text-gold font-semibold">Pukul 09.30 WIB</p>
+        </div>
+      </div>
+
+      <!-- subtle underline svg -->
+      <div class="mt-6 opacity-70">
+        <svg width="140" height="10" viewBox="0 0 140 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto">
+          <path d="M5 5C30 0 60 10 70 5C80 0 110 10 135 5" stroke="#caa356" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </div>
     </div>
 
     <!-- Location Card -->
-    <div class="mb-12 p-8 sm:p-10 bg-white/90 backdrop-blur-md rounded-3xl border border-gold/30 shadow-2xl transition-all duration-500 scale-in">
+    <div class="mb-12 p-8 sm:p-10 bg-white/85 backdrop-blur-md rounded-3xl border border-gold/30 shadow-2xl transition-all duration-500 scale-in group hover:-translate-y-1 hover:shadow-lg"
+         style="transition-delay:0.45s; transform-origin:center;">
       <p class="text-xs tracking-widest text-gray-400 uppercase font-semibold mb-4 shimmer-gold">Lokasi Acara</p>
       <p class="text-xl sm:text-2xl font-bold text-navy mb-2">Kediaman Keluarga</p>
       <p class="text-gray-600 mb-3">Bapak Zainuri & Ibu Nurul Elfiyah</p>
       <p class="text-sm text-gray-500">Mojopurowetan – Bungah – Gresik</p>
+
+      <!-- small map preview (clickable) -->
+      <a href="https://maps.app.goo.gl/ZpPY21uD3yvU2ih39" target="_blank"
+         class="mt-6 inline-flex items-center gap-3 px-6 py-3 bg-white/60 border border-gold/20 rounded-full shadow-sm hover:shadow-md transition transform hover:-translate-y-0.5">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-gold" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7z" stroke="#caa356" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="9" r="2.2" stroke="#caa356" stroke-width="1.2" />
+        </svg>
+        <span class="text-sm font-semibold text-navy">🗺️ Lihat Lokasi</span>
+      </a>
     </div>
 
-    <!-- Map Button -->
-    <a
-      href="https://maps.app.goo.gl/ZpPY21uD3yvU2ih39"
-      target="_blank"
-      class="inline-block px-8 py-3 bg-gradient-to-r from-yellow-700 via-yellow-600 to-yellow-700 border border-yellow-500/50 text-white rounded-full font-semibold shadow-md transition-all duration-300 hover:scale-105"
-    >
-      🗺️ Lihat Lokasi
-    </a>
+    <!-- Countdown Timer -->
+    <div class="mt-12 p-8 bg-white/70 backdrop-blur-md rounded-3xl border border-gold/30 shadow-lg fade-in" style="transition-delay:0.6s;">
+      <p class="text-xs tracking-widest text-gray-400 uppercase font-semibold mb-6 shimmer-gold">Save The Date</p>
+      <div class="grid grid-cols-4 gap-3 sm:gap-4">
+      <div class="text-center p-4 bg-gold/10 rounded-2xl backdrop-blur-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gold" id="days">0</p>
+        <p class="text-xs text-navy font-semibold mt-2">Hari</p>
+      </div>
+      <div class="text-center p-4 bg-gold/10 rounded-2xl backdrop-blur-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gold" id="hours">0</p>
+        <p class="text-xs text-navy font-semibold mt-2">Jam</p>
+      </div>
+      <div class="text-center p-4 bg-gold/10 rounded-2xl backdrop-blur-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gold" id="minutes">0</p>
+        <p class="text-xs text-navy font-semibold mt-2">Menit</p>
+      </div>
+      <div class="text-center p-4 bg-gold/10 rounded-2xl backdrop-blur-sm">
+        <p class="text-2xl sm:text-3xl font-bold text-gold" id="seconds">0</p>
+        <p class="text-xs text-navy font-semibold mt-2">Detik</p>
+      </div>
+      </div>
+    </div>
 
+    <script>
+      function updateCountdown() {
+      const targetDate = new Date("2025-12-13T09:30:00").getTime();
+      const now = new Date().getTime();
+      const gap = targetDate - now;
+
+      const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((gap % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
   </div>
 </section>
 
@@ -392,14 +479,10 @@ body {
 
 
 <section id="gallery" class="py-20 text-center hidden relative overflow-hidden">
-  <!-- BACKGROUND IMAGE -->
-  <div class="absolute inset-0">
-    <!-- Foto utama -->
-    <img src="bg4.jpg" alt="Gallery Background" class="w-full h-full object-cover opacity-40">
-    <!-- Dekorasi PNG overlay -->
-    <div class="absolute inset-0 bg-[url('2.png')] opacity-15 bg-repeat bg-center transform -rotate-12 scale-150 pointer-events-none"></div>
-    <!-- Soft light overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-white/50 to-white/10 pointer-events-none"></div>
+  <!-- Background Image -->
+  <div class="absolute inset-0 w-full h-full">
+    <img src="bg.jpg" alt="Gallery Background" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-navy/30 backdrop-blur-sm"></div>
   </div>
 
   <div class="max-w-6xl mx-auto px-4 relative">
@@ -412,7 +495,7 @@ body {
       </template>
     </div>
       <p class="text-sm sm:text-base md:text-lg text-navy leading-relaxed mt-8 slide-up delay-600">
-   Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir untuk memberikan doa restu kepada putri kami.
+   Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir untuk memberikan doa restu kepada kami.
       </p>
 
     <!-- QUOTE -->
@@ -494,6 +577,18 @@ window.addEventListener("load", () => {
           overlay2.classList.add("float2");
           overlay3.classList.add("float3");
         }, 5000);
+
+        // Animate couple overlay
+        const coupleOverlay = document.getElementById("coupleOverlay");
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.animation = "fadeInSoft 2.5s ease-in-out forwards";
+              setTimeout(() => entry.target.classList.add("float3"), 100);
+            }
+          });
+        }, { threshold: 0.2 });
+        if (coupleOverlay) observer.observe(coupleOverlay);
 
         setTimeout(() => textWedding.classList.add("visible"), 2000);
         setTimeout(() => textCouple.classList.add("visible"), 3000);
